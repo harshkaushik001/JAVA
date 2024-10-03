@@ -1,0 +1,975 @@
+import java.util.Scanner;
+class InventoryManagement_{
+    public static int authentication(int a){
+        Scanner sc=new Scanner(System.in);
+        String username, password;
+        int z=0;
+        switch (a){
+
+            case 1:
+            //for admin user name and password are admin and admin respectively
+            System.out.println("ENTER THE USERNAME"); 
+            username = sc.next();
+            System.out.println();
+
+            System.out.println("ENTER THE PASSWORD");
+            password = sc.next();
+            System.out.println("");
+            if(username.equals("admin") && password.equals("admin"))
+            {
+                System.out.println("Authentication Successful");
+
+                z=1;
+            }
+            else
+            {
+                System.out.println("Authentication Failed ");
+                z=2;
+            }
+            break;
+
+            case 2:
+            //for user username and password are user and user respectively
+            System.out.println("ENTER THE USERNAME"); 
+            System.out.println();
+            username = sc.next();
+            System.out.println();
+            System.out.println("ENTER THE PASSWORD");
+            System.out.println("");
+            password = sc.next();
+            System.out.println("");
+
+            if(username.equals("user") && password.equals("user"))
+            {
+                System.out.println("Authentication Successful");
+
+                z=3;
+            }
+            else
+            {
+                System.out.println("Authentication Failed");
+                z=2;
+            }
+            break;
+            default:
+            {
+                System.out.println("INVALID CHOICE");
+            }
+        }
+        return z;
+    }
+
+    public static int electronics(int pp){
+        Scanner sc=new Scanner(System.in);
+        int ss=0,m,n;
+        int total=0,qty=0;
+        System.out.println("We have following items in this category ::");
+
+        String electronics[]=new String[5];
+        electronics[0]="CHARGER";
+        electronics[1]="EARPHONE";
+        electronics[2]="PEN-DRIVE";
+        electronics[3]="SPEAKER";
+        electronics[4]="SMART WATCH";
+
+        int price[]=new int[5];
+        price[0]=1900;
+        price[1]=2300;
+        price[2]=1300;
+        price[3]=3500;
+        price[4]=3900;
+
+        System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+        System.out.println("     1. "+electronics[0]+"               "+price[0]);
+        System.out.println("     2. "+electronics[1]+"              "+price[1]);
+        System.out.println("     3. "+electronics[2]+"             "+price[2]);
+        System.out.println("     4. "+electronics[3]+"               "+price[3]);
+        System.out.println("     5. "+electronics[4]+"           "+price[4]);
+
+        System.out.println("");
+        if(pp==1){
+            System.out.println("Enter the serial number of product you want ==> ");
+            m=sc.nextInt();
+            System.out.println("Enter the quantity you want");
+            n=sc.nextInt();
+            switch(m){
+                case 1:
+                ss=price[0]*n;
+                break;
+                case 2:
+                ss=price[1]*n;
+                break;
+                case 3:
+                ss=price[2]*n;
+                break;
+                case 4:
+                ss=price[3]*n;
+                break;
+                case 5:
+                ss=price[4]*n;
+                break;
+                default:{
+                    System.out.println("Invalid Choice !!");
+                }
+            }
+            total=ss;
+
+        }
+        if(pp==11){
+            System.out.println("Enter the serial number of product whose price you want to change : ");
+            int cp=sc.nextInt();
+            System.out.println("Enter the new price : ");
+            int np=sc.nextInt();
+            int change=cp-1;
+            price[change]=np;
+            System.out.println("");
+            System.out.println("UPDATED PRICE IS AS FOLLOWS :: ");
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+electronics[0]+"               "+price[0]);
+            System.out.println("     2. "+electronics[1]+"              "+price[1]);
+            System.out.println("     3. "+electronics[2]+"             "+price[2]);
+            System.out.println("     4. "+electronics[3]+"               "+price[3]);
+            System.out.println("     5. "+electronics[4]+"           "+price[4]);
+        }
+        if(pp==22){
+            System.out.println("Enter the serial number of product that you want to remove");
+            int re=sc.nextInt();
+            int remove=re-1;
+            electronics[remove]=" ";
+            price[remove]=00;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+electronics[0]+"               "+price[0]);
+            System.out.println("     2. "+electronics[1]+"              "+price[1]);
+            System.out.println("     3. "+electronics[2]+"             "+price[2]);
+            System.out.println("     4. "+electronics[3]+"               "+price[3]);
+            System.out.println("     5. "+electronics[4]+"           "+price[4]);
+        }
+        if(pp==33){
+            System.out.println("Enter the serial number at which you want to add the new product and remove the old one");
+            int os=sc.nextInt();
+            int addp=os-1;
+            System.out.println("ENTER THE NAME OF PRODUCT");
+            String newproduct=sc.next();
+            System.out.println("ENTER THE PRICE OF NEW PRODUCT");
+            int pri=sc.nextInt();
+            electronics[addp]=newproduct;
+            price[addp]=pri;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+electronics[0]+"               "+price[0]);
+            System.out.println("     2. "+electronics[1]+"              "+price[1]);
+            System.out.println("     3. "+electronics[2]+"             "+price[2]);
+            System.out.println("     4. "+electronics[3]+"               "+price[3]);
+            System.out.println("     5. "+electronics[4]+"           "+price[4]);
+        }
+        return total;
+    }
+
+    public static int stationary(int pp){
+        System.out.println("We have following items in this category ::");
+        System.out.println("");
+        Scanner sc=new Scanner(System.in);
+        int m,n,ss=0,qty=0,total=0;
+
+        String stationary[]=new String[5];
+        stationary[0]="PEN";
+        stationary[1]="PENCIL";
+        stationary[2]="ERASER";
+        stationary[3]="SHEETS";
+        stationary[4]="MARKER";
+
+        int price[]=new int[5];
+        price[0]=25;
+        price[1]=10;
+        price[2]=5;
+        price[3]=7;
+        price[4]=20;
+
+        System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+        System.out.println("     1. "+stationary[0]+"               "+price[0]);
+        System.out.println("     2. "+stationary[1]+"            "+price[1]);
+        System.out.println("     3. "+stationary[2]+"             "+price[2]);
+        System.out.println("     4. "+stationary[3]+"             "+price[3]);
+        System.out.println("     5. "+stationary[4]+"            "+price[4]);
+        System.out.println("");
+        if(pp==1){
+            System.out.println("Enter the serial number of product you want ==> ");
+            m=sc.nextInt();
+            System.out.println("Enter the quantity you want");
+            n=sc.nextInt();
+            switch(m){
+                case 1:
+                ss=price[0]*n;
+                break;
+                case 2:
+                ss=price[1]*n;
+                break;
+                case 3:
+                ss=price[2]*n;
+                break;
+                case 4:
+                ss=price[3]*n;
+                break;
+                case 5:
+                ss=price[4]*n;
+                break;
+                default:{
+                    System.out.println("Invalid Choice !!");
+                }
+            }
+            total=ss;
+        }
+        if(pp==11){
+            System.out.println("Enter the serial number of product whose price you want to change : ");
+            int cp=sc.nextInt();
+            System.out.println("Enter the new price : ");
+            int np=sc.nextInt();
+            int change=cp-1;
+            price[change]=np;
+            System.out.println("");
+            System.out.println("UPDATED PRICE IS AS FOLLOWS :: ");
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+stationary[0]+"               "+price[0]);
+            System.out.println("     2. "+stationary[1]+"            "+price[1]);
+            System.out.println("     3. "+stationary[2]+"             "+price[2]);
+            System.out.println("     4. "+stationary[3]+"             "+price[3]);
+            System.out.println("     5. "+stationary[4]+"            "+price[4]);
+        }
+        if(pp==22){
+            System.out.println("Enter the serial number of product that you want to remove");
+            int re=sc.nextInt();
+            int remove=re-1;
+            stationary[remove]=" ";
+            price[remove]=00;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+stationary[0]+"               "+price[0]);
+            System.out.println("     2. "+stationary[1]+"            "+price[1]);
+            System.out.println("     3. "+stationary[2]+"             "+price[2]);
+            System.out.println("     4. "+stationary[3]+"             "+price[3]);
+            System.out.println("     5. "+stationary[4]+"            "+price[4]);
+        }
+        if(pp==33){
+            System.out.println("Enter the serial number at which you want to add the new product and remove the old one");
+            int os=sc.nextInt();
+            int addp=os-1;
+            System.out.println("ENTER THE NAME OF PRODUCT");
+            String newproduct=sc.next();
+            System.out.println("ENTER THE PRICE OF NEW PRODUCT");
+            int pri=sc.nextInt();
+            stationary[addp]=newproduct;
+            price[addp]=pri;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+stationary[0]+"               "+price[0]);
+            System.out.println("     2. "+stationary[1]+"            "+price[1]);
+            System.out.println("     3. "+stationary[2]+"             "+price[2]);
+            System.out.println("     4. "+stationary[3]+"             "+price[3]);
+            System.out.println("     5. "+stationary[4]+"            "+price[4]);
+        }
+
+        return total;
+    }
+
+    public static int grocery(int pp){
+        System.out.println("We have following items in this category ::");
+        System.out.println("");
+        Scanner sc=new Scanner(System.in);
+        int m,n,ss=0,qty=0,total=0;
+
+        String grocery[]=new String[5];
+        grocery[0]="TOMATO";
+        grocery[1]="POTATO";
+        grocery[2]="PEAS";
+        grocery[3]="GINGER";
+        grocery[4]="BRINJAL";
+
+        int price[]=new int[5];
+        price[0]=60;
+        price[1]=50;
+        price[2]=70;
+        price[3]=90;
+        price[4]=40;
+
+        System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+        System.out.println("     1. "+grocery[0]+"               "+price[0]); 
+        System.out.println("     2. "+grocery[1]+"               "+price[1]);
+        System.out.println("     3. "+grocery[2]+"                 "+price[2]);
+        System.out.println("     4. "+grocery[3]+"               "+price[3]);
+        System.out.println("     5. "+grocery[4]+"              "+price[4]);
+        System.out.println("");
+        if(pp==1){
+            System.out.println("Enter the serial number of product you want ==> ");
+            m=sc.nextInt();
+            System.out.println("Enter the quantity you want");
+            n=sc.nextInt();
+            switch(m){
+                case 1:
+                ss=price[0]*n;
+                break;
+                case 2:
+                ss=price[1]*n;
+                break;
+                case 3:
+                ss=price[2]*n;
+                break;
+                case 4:
+                ss=price[3]*n;
+                break;
+                case 5:
+                ss=price[4]*n;
+                break;
+                default:{
+                    System.out.println("Invalid Choice !!");
+                }
+            }
+            total=ss;
+        }
+        if(pp==11){
+            System.out.println("Enter the serial number of product whose price you want to change : ");
+            int cp=sc.nextInt();
+            System.out.println("Enter the new price : ");
+            int np=sc.nextInt();
+            int change=cp-1;
+            price[change]=np;
+            System.out.println("");
+            System.out.println("UPDATED PRICE IS AS FOLLOWS :: ");
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+grocery[0]+"               "+price[0]); 
+            System.out.println("     2. "+grocery[1]+"               "+price[1]);
+            System.out.println("     3. "+grocery[2]+"                 "+price[2]);
+            System.out.println("     4. "+grocery[3]+"               "+price[3]);
+            System.out.println("     5. "+grocery[4]+"              "+price[4]);
+        }
+        if(pp==22){
+            System.out.println("Enter the serial number of product that you want to remove");
+            int re=sc.nextInt();
+            int remove=re-1;
+            grocery[remove]=" ";
+            price[remove]=00;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+grocery[0]+"               "+price[0]); 
+            System.out.println("     2. "+grocery[1]+"               "+price[1]);
+            System.out.println("     3. "+grocery[2]+"                 "+price[2]);
+            System.out.println("     4. "+grocery[3]+"               "+price[3]);
+            System.out.println("     5. "+grocery[4]+"              "+price[4]);
+        }
+        if(pp==33){
+            System.out.println("Enter the serial number at which you want to add the new product and remove the old one");
+            int os=sc.nextInt();
+            int addp=os-1;
+            System.out.println("ENTER THE NAME OF PRODUCT");
+            String newproduct=sc.next();
+            System.out.println("ENTER THE PRICE OF NEW PRODUCT");
+            int pri=sc.nextInt();
+            grocery[addp]=newproduct;
+            price[addp]=pri;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+grocery[0]+"               "+price[0]); 
+            System.out.println("     2. "+grocery[1]+"               "+price[1]);
+            System.out.println("     3. "+grocery[2]+"                 "+price[2]);
+            System.out.println("     4. "+grocery[3]+"               "+price[3]);
+            System.out.println("     5. "+grocery[4]+"              "+price[4]);
+        }
+        return total;
+    }
+
+    public static int clothes(int pp){
+        System.out.println("We have following items in this category ::");
+        System.out.println("");
+        Scanner sc=new Scanner(System.in);
+        int m,n,ss=0,qty=0,total=0;
+
+        String clothes[]=new String[5];
+        clothes[0]="SHIRT";
+        clothes[1]="JEANS";
+        clothes[2]="LOWER";
+        clothes[3]="SHORTS";
+        clothes[4]="SOCKS";
+
+        int price[]=new int[5];
+        price[0]=1300;
+        price[1]=2700;
+        price[2]=1800;
+        price[3]=900;
+        price[4]=450;
+
+        System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+        System.out.println("     1. "+clothes[0]+"               "+price[0]);
+        System.out.println("     2. "+clothes[1]+"               "+price[1]);
+        System.out.println("     3. "+clothes[2]+"               "+price[2]);
+        System.out.println("     4. "+clothes[3]+"              "+price[3]);
+        System.out.println("     5. "+clothes[4]+"               "+price[4]);
+        System.out.println("");
+        if(pp==1){
+            System.out.println("Enter the serial number of product you want ==> ");
+            m=sc.nextInt();
+            System.out.println("Enter the quantity you want");
+            n=sc.nextInt();
+            switch(m){
+                case 1:
+                ss=price[0]*n;
+                break;
+                case 2:
+                ss=price[1]*n;
+                break;
+                case 3:
+                ss=price[2]*n;
+                break;
+                case 4:
+                ss=price[3]*n;
+                break;
+                case 5:
+                ss=price[4]*n;
+                break;
+                default:{
+                    System.out.println("Invalid Choice !!");
+                }
+            }
+            total=ss;
+        }
+        if(pp==11){
+            System.out.println("Enter the serial number of product whose price you want to change : ");
+            int cp=sc.nextInt();
+            System.out.println("Enter the new price : ");
+            int np=sc.nextInt();
+            int change=cp-1;
+            price[change]=np;
+            System.out.println("");
+            System.out.println("UPDATED PRICE IS AS FOLLOWS :: ");
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+clothes[0]+"               "+price[0]);
+            System.out.println("     2. "+clothes[1]+"               "+price[1]);
+            System.out.println("     3. "+clothes[2]+"               "+price[2]);
+            System.out.println("     4. "+clothes[3]+"              "+price[3]);
+            System.out.println("     5. "+clothes[4]+"               "+price[4]);
+        }
+        if(pp==22){
+            System.out.println("Enter the serial number of product that you want to remove");
+            int re=sc.nextInt();
+            int remove=re-1;
+            clothes[remove]=" ";
+            price[remove]=00;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+clothes[0]+"               "+price[0]);
+            System.out.println("     2. "+clothes[1]+"               "+price[1]);
+            System.out.println("     3. "+clothes[2]+"               "+price[2]);
+            System.out.println("     4. "+clothes[3]+"              "+price[3]);
+            System.out.println("     5. "+clothes[4]+"               "+price[4]);
+        }
+        if(pp==33){
+            System.out.println("Enter the serial number at which you want to add the new product and remove the old one");
+            int os=sc.nextInt();
+            int addp=os-1;
+            System.out.println("ENTER THE NAME OF PRODUCT");
+            String newproduct=sc.next();
+            System.out.println("ENTER THE PRICE OF NEW PRODUCT");
+            int pri=sc.nextInt();
+            clothes[addp]=newproduct;
+            price[addp]=pri;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+clothes[0]+"               "+price[0]);
+            System.out.println("     2. "+clothes[1]+"               "+price[1]);
+            System.out.println("     3. "+clothes[2]+"               "+price[2]);
+            System.out.println("     4. "+clothes[3]+"              "+price[3]);
+            System.out.println("     5. "+clothes[4]+"               "+price[4]);
+        }
+        return total;
+    }
+
+    public static int footwear(int pp){
+        System.out.println("We have following items in this category ::");
+        System.out.println("");
+        Scanner sc=new Scanner(System.in);
+        int m,n,ss=0,qty=0,total=0;
+
+        String footwear[]=new String[5];
+        footwear[0]="SLIPPERS";
+        footwear[1]="FORMAL SHOES";
+        footwear[2]="SNIKERS";
+        footwear[3]="CROCKS";
+        footwear[4]="SANDALS";
+
+        int price[]=new int[5];
+        price[0]=599;
+        price[1]=1999;
+        price[2]=2999;
+        price[3]=799;
+        price[4]=1499;
+
+        System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+        System.out.println("     1. "+footwear[0]+"              "+price[0]);
+        System.out.println("     2. "+footwear[1]+"         "+price[1]);
+        System.out.println("     3. "+footwear[2]+"              "+price[2]);
+        System.out.println("     4. "+footwear[3]+"                "+price[3]);
+        System.out.println("     5. "+footwear[4]+"              "+price[4]);
+        System.out.println("");
+        if(pp==1){
+            System.out.println("Enter the serial number of product you want ==> ");
+            m=sc.nextInt();
+            System.out.println("Enter the quantity you want");
+            n=sc.nextInt();
+            switch(m){
+                case 1:
+                ss=price[0]*n;
+                break;
+                case 2:
+                ss=price[1]*n;
+                break;
+                case 3:
+                ss=price[2]*n;
+                break;
+                case 4:
+                ss=price[3]*n;
+                break;
+                case 5:
+                ss=price[4]*n;
+                break;
+                default:{
+                    System.out.println("Invalid Choice !!");
+                }
+            }
+            total=ss;
+        }
+        if(pp==11){
+            System.out.println("Enter the serial number of product whose price you want to change : ");
+            int cp=sc.nextInt();
+            System.out.println("Enter the new price : ");
+            int np=sc.nextInt();
+            int change=cp-1;
+            price[change]=np;
+            System.out.println("");
+            System.out.println("UPDATED PRICE IS AS FOLLOWS :: ");
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+footwear[0]+"              "+price[0]);
+            System.out.println("     2. "+footwear[1]+"         "+price[1]);
+            System.out.println("     3. "+footwear[2]+"              "+price[2]);
+            System.out.println("     4. "+footwear[3]+"                "+price[3]);
+            System.out.println("     5. "+footwear[4]+"              "+price[4]);
+
+        }
+        if(pp==22){
+            System.out.println("Enter the serial number of product that you want to remove");
+            int re=sc.nextInt();
+            int remove=re-1;
+            footwear[remove]=" ";
+            price[remove]=00;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+footwear[0]+"              "+price[0]);
+            System.out.println("     2. "+footwear[1]+"         "+price[1]);
+            System.out.println("     3. "+footwear[2]+"              "+price[2]);
+            System.out.println("     4. "+footwear[3]+"                "+price[3]);
+            System.out.println("     5. "+footwear[4]+"              "+price[4]);
+
+        }
+        if(pp==33){
+            System.out.println("Enter the serial number at which you want to add the new product and remove the old one");
+            int os=sc.nextInt();
+            int addp=os-1;
+            System.out.println("ENTER THE NAME OF PRODUCT");
+            String newproduct=sc.next();
+            System.out.println("ENTER THE PRICE OF NEW PRODUCT");
+            int pri=sc.nextInt();
+            footwear[addp]=newproduct;
+            price[addp]=pri;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+footwear[0]+"              "+price[0]);
+            System.out.println("     2. "+footwear[1]+"         "+price[1]);
+            System.out.println("     3. "+footwear[2]+"              "+price[2]);
+            System.out.println("     4. "+footwear[3]+"                "+price[3]);
+            System.out.println("     5. "+footwear[4]+"              "+price[4]);
+
+        }
+        return total;
+    }
+
+    public static int refreshments(int pp){
+        System.out.println("We have following items in this category ::");
+        System.out.println("");
+        Scanner sc=new Scanner(System.in);
+        int m,n,ss=0,qty=0,total=0;
+
+        String refreshments[]=new String[5];
+        refreshments[0]="SOFT-DRINKS";
+        refreshments[1]="LAYS";
+        refreshments[2]="DORITOS";
+        refreshments[3]="CHOCOLATE";
+        refreshments[4]="CHOCOS";
+
+        int price[]=new int[5];
+        price[0]=40;
+        price[1]=20;
+        price[2]=30;
+        price[3]=60;
+        price[4]=20;
+
+        System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+        System.out.println("     1. "+refreshments[0]+"             "+price[0]);
+        System.out.println("     2. "+refreshments[1]+"                    "+price[1]);
+        System.out.println("     3. "+refreshments[2]+"                 "+price[2]);
+        System.out.println("     4. "+refreshments[3]+"               "+price[3]);
+        System.out.println("     5. "+refreshments[4]+"                  "+price[4]);
+        System.out.println("");
+        if(pp==1){
+            System.out.println("Enter the serial number of product you want ==> ");
+            m=sc.nextInt();
+            System.out.println("Enter the quantity you want");
+            n=sc.nextInt();
+            switch(m){
+                case 1:
+                ss=price[0]*n;
+                break;
+                case 2:
+                ss=price[1]*n;
+                break;
+                case 3:
+                ss=price[2]*n;
+                break;
+                case 4:
+                ss=price[3]*n;
+                break;
+                case 5:
+                ss=price[4]*n;
+                break;
+                default:{
+                    System.out.println("Invalid Choice !!");
+                }
+            }
+            total=ss;
+        }
+        if(pp==11){
+            System.out.println("Enter the serial number of product whose price you want to change : ");
+            int cp=sc.nextInt();
+            System.out.println("Enter the new price : ");
+            int np=sc.nextInt();
+            int change=cp-1;
+            price[change]=np;
+            System.out.println("");
+            System.out.println("UPDATED PRICE IS AS FOLLOWS :: ");
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+refreshments[0]+"             "+price[0]);
+            System.out.println("     2. "+refreshments[1]+"                    "+price[1]);
+            System.out.println("     3. "+refreshments[2]+"                 "+price[2]);
+            System.out.println("     4. "+refreshments[3]+"               "+price[3]);
+            System.out.println("     5. "+refreshments[4]+"                  "+price[4]);
+
+        }
+        if(pp==22){
+            System.out.println("Enter the serial number of product that you want to remove");
+            int re=sc.nextInt();
+            int remove=re-1;
+            refreshments[remove]=" ";
+            price[remove]=00;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+refreshments[0]+"             "+price[0]);
+            System.out.println("     2. "+refreshments[1]+"                    "+price[1]);
+            System.out.println("     3. "+refreshments[2]+"                 "+price[2]);
+            System.out.println("     4. "+refreshments[3]+"               "+price[3]);
+            System.out.println("     5. "+refreshments[4]+"                  "+price[4]);
+
+        }
+        if(pp==33){
+            System.out.println("Enter the serial number at which you want to add the new product and remove the old one");
+            int os=sc.nextInt();
+            int addp=os-1;
+            System.out.println("ENTER THE NAME OF PRODUCT");
+            String newproduct=sc.next();
+            System.out.println("ENTER THE PRICE OF NEW PRODUCT");
+            int pri=sc.nextInt();
+            refreshments[addp]=newproduct;
+            price[addp]=pri;
+            System.out.println("");
+            System.out.println("  S.NO  PRODUCT          PRICE PER UNIT");
+            System.out.println("     1. "+refreshments[0]+"             "+price[0]);
+            System.out.println("     2. "+refreshments[1]+"                    "+price[1]);
+            System.out.println("     3. "+refreshments[2]+"                 "+price[2]);
+            System.out.println("     4. "+refreshments[3]+"               "+price[3]);
+            System.out.println("     5. "+refreshments[4]+"                  "+price[4]);
+
+        }
+        return total;
+    }
+
+    public static void main(String args[]){
+        System.out.println("WELCOME TO THE INVENTORY");
+        System.out.println("");
+        Scanner sc=new Scanner(System.in);
+        System.out.println("WHO ARE YOU ?");
+        System.out.println("");
+        System.out.println("1. ADMIN");
+        System.out.println("2. USER");
+        System.out.println("");
+        System.out.println("ENTER 1 or 2");
+        int a=sc.nextInt();
+        System.out.println("");
+        int x=authentication(a);
+        int s=0;
+        int xy=1;
+        int GT=0;
+        String arr1[]=new String[6];
+        arr1[0]="ELECTRONICS";
+        arr1[1]="STATIONARTY";
+        arr1[2]="GROCERY";
+        arr1[3]="CLOTHES";
+        arr1[4]="FOOTWEAR";
+        arr1[5]="REFRESHMENTS";
+        if(x==1){
+
+            System.out.println("WELCOME TO ADMIN PORTAL");
+            System.out.println("");
+            System.out.println("WHAT DO YOU WANT TO DO ?");
+            System.out.println("1. UPDATE PRICE");
+            System.out.println("2. REMOVE ITEM");
+            System.out.println("3. ADD ITEM");
+            int k=sc.nextInt();
+            switch(k){
+                case 1:
+                System.out.println("SELECT THE CATEGORY IN WHICH YOU WOULD LIKE TO MAKE CHANGES IN PRICE ");
+                System.out.println("");
+                System.out.println("S.NO         CATEGORY");
+                System.out.println("");
+                System.out.println("   1.       "+arr1[0]);
+                System.out.println("   2.       "+arr1[1]);
+                System.out.println("   3.       "+arr1[2]);
+                System.out.println("   4.       "+arr1[3]);
+                System.out.println("   5.       "+arr1[4]);
+                System.out.println("   6.       "+arr1[5]);
+                System.out.println("");
+                System.out.println("ENTER THE SERIAL NO OF THE CATEGORY");
+                int p=sc.nextInt();
+                int zz=11;
+                switch(p){
+
+                    case 1:
+
+                    electronics(zz);
+
+                    break;
+
+                    case 2:
+                    stationary(zz);
+
+                    break;
+
+                    case 3:
+                    grocery(zz);
+
+                    break;
+
+                    case 4:
+                    clothes(zz);
+
+                    break;
+
+                    case 5:
+                    footwear(zz);
+
+                    break;
+
+                    case 6:
+                    refreshments(zz);
+
+                    break;
+
+                    default:
+                    System.out.println("INVALID CHOICE !!");
+
+                }
+                break;
+                case 2:
+                System.out.println("SELECT THE CATEGORY IN WHICH YOU WOULD LIKE TO MAKE CHANGES ");
+                System.out.println("");
+                System.out.println("S.NO         CATEGORY");
+                System.out.println("");
+                System.out.println("   1.       "+arr1[0]);
+                System.out.println("   2.       "+arr1[1]);
+                System.out.println("   3.       "+arr1[2]);
+                System.out.println("   4.       "+arr1[3]);
+                System.out.println("   5.       "+arr1[4]);
+                System.out.println("   6.       "+arr1[5]);
+                System.out.println("");
+                System.out.println("ENTER THE SERIAL NO OF THE CATEGORY");
+                int q=sc.nextInt();
+                int kk=22;
+                switch(q){
+                    case 1:
+
+                    electronics(kk);
+
+                    break;
+
+                    case 2:
+                    stationary(kk);
+
+                    break;
+
+                    case 3:
+                    grocery(kk);
+
+                    break;
+
+                    case 4:
+                    clothes(kk);
+
+                    break;
+
+                    case 5:
+                    footwear(kk);
+
+                    break;
+
+                    case 6:
+                    refreshments(kk);
+
+                    break;
+
+                    default:
+                    System.out.println("INVALID CHOICE !!");
+
+                    break;
+
+                }
+                break;
+                case 3:
+
+                System.out.println("SELECT THE CATEGORY IN WHICH YOU WOULD LIKE TO MAKE CHANGES ");
+                System.out.println("");
+                System.out.println("S.NO         CATEGORY");
+                System.out.println("");
+                System.out.println("   1.       "+arr1[0]);
+                System.out.println("   2.       "+arr1[1]);
+                System.out.println("   3.       "+arr1[2]);
+                System.out.println("   4.       "+arr1[3]);
+                System.out.println("   5.       "+arr1[4]);
+                System.out.println("   6.       "+arr1[5]);
+                System.out.println("");
+                int ll=33;
+                System.out.println("ENTER THE SERIAL NO OF THE CATEGORY");
+                int r=sc.nextInt();
+                switch(r){
+                    case 1:
+
+                    electronics(ll);
+
+                    break;
+
+                    case 2:
+                    stationary(ll);
+
+                    break;
+
+                    case 3:
+                    grocery(ll);
+
+                    break;
+
+                    case 4:
+                    clothes(ll);
+
+                    break;
+
+                    case 5:
+                    footwear(ll);
+
+                    break;
+
+                    case 6:
+                    refreshments(ll);
+
+                    break;
+
+                    default:
+                    System.out.println("INVALID CHOICE !!");
+
+                    break;
+
+                }
+
+            }
+
+        }
+
+        if(x==3){
+            do{
+                System.out.println("WELCOME TO USER PORTAL");
+                System.out.println("");
+                System.out.println("SELECT THE CATEGORY YOU WOULD LIKE TO EXPLORE");
+                System.out.println("");
+                System.out.println("S.NO         CATEGORY");
+                System.out.println("");
+                System.out.println("   1.       "+arr1[0]);
+                System.out.println("   2.       "+arr1[1]);
+                System.out.println("   3.       "+arr1[2]);
+                System.out.println("   4.       "+arr1[3]);
+                System.out.println("   5.       "+arr1[4]);
+                System.out.println("   6.       "+arr1[5]);
+                System.out.println("");
+                System.out.println("ENTER THE SERIAL NUMBER OF THE CATEGORY YOU WANT TO EXPLORE");
+                int c=sc.nextInt();
+                int total,sum;
+                int mm=1;
+                switch(c){
+                    case 1:
+                    s=electronics(mm);
+
+                    break;
+
+                    case 2:
+                    s=stationary(mm);
+
+                    break;
+
+                    case 3:
+                    s=grocery(mm);
+
+                    break;
+
+                    case 4:
+                    s=clothes(mm);
+
+                    break;
+
+                    case 5:
+                    s=footwear(mm);
+
+                    break;
+
+                    case 6:
+                    s=refreshments(mm);
+
+                    break;
+
+                    default:
+                    System.out.println("INVALID CHOICE !!");
+                }
+                System.out.println("Enter zero to exit or press any other number to continue");
+                xy=sc.nextInt();
+                GT=GT+s;
+            }
+            while(xy!=0);
+
+            if(x==2){
+                System.out.println("TRY AGAIN");
+            }
+            System.out.println("");
+            System.out.println("");
+            System.out.println("Amount need to be paid is ==> Rs. "+GT);
+            System.out.println("");
+            System.out.println("THANKS FOR SHOPPING WITH US....HAVE A GOOD DAY !!");
+        }
+    }
+}
