@@ -1,0 +1,187 @@
+-	Is Java Platform Independent? Explain.
+-	What is JVM?
+-	What is JIT?
+-	What is class loader
+-	Differentiate JRE, JVM and JDK.
+-	Difference between C++ and Java
+-	What does public static void main(String args[]) mean in Java
+-	What is Java string pool.
+-	What will happen if the main method is not static?
+-	What are packages in Java?
+-	What is the use of packages?
+-	Explain different data types in Java – primitive and non-primitive
+-	Explain byte data type and its usage.
+-	What are wrapper classes in Java?
+-	What is the need of wrapper classes?
+-	What are local and instance variables?
+-	What are the default values of local, instance and static variables if they are not initialized?
+-	What is a class variable?
+-	Class variables and instance variables?
+-	What are static members?
+-	What is system.out, system.in, system.err?
+-	Reader/Writer vs InputStream/OutputStream
+-	What is the hierarchy of byte stream classes?
+-	What is the hierarchy of character classes?
+-	What are the FileInputStream and FileOutputStream?
+-	What are BufferedInputStream and BufferedOutputStream?
+-	What are FilterStreams?
+-	Difference between print, println, and printf?
+-	What are operators?
+-	What all operators exist in Java?
+-	Differentiate >> and >>>
+-	What is covariant return type?
+-	Transient keyword. What happens when a variable is static or final?
+-	Differentiate String vs StringBuffer?
+-	Differentiate StringBuffer and StringBuilder?
+-	Differentiate creation of string and string using new().
+-	What is an array in Java?
+-	Which memory Array’s are created in Java?
+-	Types of array ?
+-	Differentiate int arr[] and int[] arr.
+-	Differentiate clone, arraycopy, copyOf, and copyOfRange.
+-	What’s a jagged array?
+-	What is volatile keyword ? Can you make an array volatile ?
+-	What variables can be volatile ?
+-	Which part of memory does an array gets stored ?
+-	What is object oriented programming paradigm ?
+-	What are the four concepts of OOP ?
+-	New() vs newInstance() ?
+-	Classes vs objects
+-	What is this keyword ?
+-	What are access specifiers ? Explain.
+-	What is object clonning ? Explain.
+-	Can you use object clone to clone any other class ?
+-	What are constructors ?
+-	What happens if you do not provide a constructor in a class ?
+-	How many types of constructors are there in Java ?
+-	What is the purpose of default constructor ?
+-	What is a copy constructor in Java ?
+-	Why would you use a private constructor in Java ?
+-	Constructors vs class members ?
+-	What is an interface ? What is it purpose ?
+-	What is a marker interface ?
+- 	Differentiate interface and abstract class ?
+-	What is data encapsulation ? How is it related to data hiding ?
+-	What is inheritance ?
+-	What is is-a relationship ?
+- 	What is has-a relationship? What are the type of has-a relationship ?
+-	What are different types of inheritance in Java ?
+-	What is multiple inheritance ? Is it supported in Java ?
+-	Differentiate composition and aggregation ?
+-	What is polymorphism ? What are the types of polymorphism ?
+-	What is method overriding ?
+-	What is method overloading ?
+-	Can you override static members ?
+-	Can you override a overloaded method ?
+-	Can you overload main method ?
+-	Can you override a private method ?
+-	How method scope changes in a overloaded method in a subclass ?
+-	Throw vs throws ?
+-	What are the rules of throws in a subclass when there is a throw declared in superclass ?
+-	What are virtual functions ? 
+-	How can you stop a function from being virtual ?
+-	What is abstract class ?
+-	What do you use an abstract method ?
+-	How do you stop serialization in subclass if superclass defines serializable ?
+-	What are collection in Java ?
+- 	What are generic functions and generic classes in Java ?
+-	How will you serialize an ArrayList ?
+-	What are the advanteges of ArrayList over vectors ?
+-	Array vs ArrayList ?
+-	What is a stack class in Java ?
+-	What are different Set implementation in Java ?
+-	How does HashSet works ?
+-	What is a LinkedHashSet in Java ?
+-	What are Map's in Java ? Types of Map's ?
+-	What is a TreeMap ?
+-	What is a SortedMap ?
+-	What is a HashMap ?
+-	What is a LinkedHashMap ?
+-	What is an enumeration?
+-	Differentiate Collection and Collections ?
+-	Differentiate ArrayList and LinkedList ?
+-	Differentiate Comparable and Comparator ?
+-	What is exception in Java ?
+- 	Explain built in exception and user defined exception classes in Java.
+-	Differentiate error and exception
+-	What are runtime exceptions ? Types ?
+-	Differentiate Checked Exception and Unchecked Exception.
+-	What is exception propogation ?
+-	Differentiate final, finally, and finalize fulfill.
+-	Differentiate this() and super().
+-	What is garbage collection ?
+- 	What is memory leak ?
+-	Differentiate list and set ?
+-	Differentiate list and map ?
+-	Differentiate Iterable and Iterator ?
+-	Differentiate Stack and Queue
+-	Differentiate HashMap and TreeMap ?
+-	Differentiate HashSet and TreeSet ?
+-	Features of Java
+-	Differentiate static public void and public static void	
+- 	Initial values of references in Java ?
+-	Can you make a constructor final?
+-	Can you overload the constructors?
+-	Differentiate constructors and methods?
+-	Why is main method static?
+-	What if the static modifier is removed from the the main method?
+-	Can you make constructors static?
+-	Can you make the abstract methods static in Java?
+-	Can you declare the static variables and methods in an abstract class?
+-	Can you assign the reference to this keyword ?
+-	Can this keyword be used to refer static members?
+-	Which class is the superclass for all the classes?
+-	What is super keyword in Java ?
+- 	What is constructor chaining ?
+-	Sequence of constructor and destructors calling.
+-	Can you inherit constructor ?
+-	Can you make a constructor final?
+-	Can you overload constructors ?
+-	Difference between constructor and methods ?
+-	Can you override static method ?
+-	What will happen if static is removed from main method ?
+-	What will happen if constructor is made static ?
+-	What will happen if you make abstract method static ?
+-	What will happen if you make static methods in an abstract class ?
+-	Can you assign something to this ?
+-	Can this be used to refer to static methods ?
+-	Which class is super class of all classes ?
+-	What is the use of super keyword ?
+-	Can you use this() and super() both in a constructor?
+-	What is object clonning ? What is the necessary requirement so that an object can be clonned ?
+-	Can you override private methods ?
+-	Can you change the scope of overridden methods ?
+-	What are checked and unchecked exceptions ?
+-	Difference between final and abstract method ?
+-	Differentiate compile-time polymorphism and runtime polymorphism.
+-	Write code for compile time polymorphism.
+-	Write code for run time polymorphism.
+-	What is the difference between static binding and dynamic binding?
+-	What is Java instanceOf operator?
+-	What is marker interface ?
+-	Can you have private and protected methods in an interface ?
+-	How can you access some class in another class in Java?
+-	What is the static import?
+-	Is it necessary that each try block must be followed by a catch block ?
+-	What is finally block?
+-	Can finally block be used without a catch?
+-	Can an exception be rethrown?
+-	What is exception propagation?
+-	What is String Pool?
+-	What is the concept of immutable string in Java ?
+-	Creating string using stack vs heap.
+-	Difference between == and equals() ?
+-	How can you create an immutable class in Java?
+-	Why CharArray() is more secure over String ?
+-	What is nested class ?
+-	Advantages and dis advanteges of inner/nested classes ?
+-	What are anonymous inner classes?
+-	Can you create nested interfaces ?
+-	What is garbage collection ? How is it done ?
+-	What is finalize method?
+-	final, finally and finalize ?
+-	What is serialization?
+-	What is Deserialization?
+-	What is Externalizable?
+-	Is shallow copy and clonning same ?
+-	Write a Java program that prints all the values given at command-line.

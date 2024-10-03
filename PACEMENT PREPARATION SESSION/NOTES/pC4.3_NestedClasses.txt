@@ -1,0 +1,838 @@
+
+// Output ??
+class App1 {
+    class App2 {
+        static void methodApp2() {
+            System.out.println("Method App2");
+        }
+    }
+}
+
+
+// Output ??
+class App1 {
+
+	static int main(String[] args)
+	{
+		static int ii = 0;
+	}
+
+}
+
+	
+// Output ??
+class App1 {
+    static int x = 1;
+    static class App2 {
+        static int y = x++;
+        static class Z {
+            static int z = y++;
+        }
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        System.out.println(App1.x);
+        System.out.println(App1.App2.y);
+		// System.out.println(App1.x);			-- >> ???
+        System.out.println(App1.App2.Z.z);
+    }
+}
+
+// How would you access i ?
+class App1 {
+    class App2 {
+        int i = 111;
+    }
+}
+
+
+// Output ??
+class App1 {
+    {
+        new App2();
+    }
+     
+    static class App2 { {
+            new App1().new App3();
+        }
+    }
+     
+    class App3 { {
+            System.out.println("S");
+        }
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        new App1();
+    }
+}
+
+// Output ??
+class App1 { {
+        new App2();
+    }
+     
+    static class App2 { {
+            new App1().new App3();
+        }
+    }
+     
+    class App3 { {
+            System.out.println("SUCCESS");
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1();
+    }
+}
+
+
+// Output ??
+class App1 {
+    String s = "AAA";
+     
+    void methodApp1() {
+        System.out.println(s);
+    }
+     
+    static class App2 {
+        void methodApp2() {
+            methodApp1();
+        }
+    }
+}
+
+
+// Output ??
+abstract class App1 {
+    {
+        System.out.println(1);
+    }
+     
+    static {
+        System.out.println(2);
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1 a = new App1() { };
+    }
+}
+
+// Output ??
+class App1 {
+    static String s = "s1";     
+    class App2 {
+        String s = "s2";         
+        void methodApp2() {
+            System.out.println(s);
+        }
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App1 a = new App1();         
+        System.out.println(a.s);         
+        App1.App2 b = a.new App2();         
+        System.out.println(b.s);         
+        b.methodApp2();
+    }
+}
+
+
+// Output ??
+class App1 {
+    void m1() {
+        class App2 {
+            void m2() {
+                System.out.println("m2");
+            }
+        }
+    }
+     
+    void m2() {
+        new App2().m2();
+    }
+}
+
+
+// Output ??
+class App1 {
+    {
+        System.out.println(1);
+    }     
+    static {
+        System.out.println(2);
+    }     
+    public App1() {
+        new App2();
+    }     
+    static class App2 { 
+		{
+            System.out.println(3);
+        }         
+        static {
+            System.out.println(4);
+        }
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App1 x = new App1();         
+        App1.App2 y = new App1.App2();
+    }
+}
+
+
+// Output ??
+class App1 {
+    class App2 { 
+		{
+            System.out.println(1);
+        }         
+        static {
+            System.out.println(2);
+        }
+    }
+}
+
+
+// Output ??
+class App1 {
+    int i = 10101;     
+    {
+        i--;
+    }     
+    public App1() {
+        --i;
+    }     
+    class App2 {
+        int i = this.i;          {
+            i++;
+        }
+         
+        public App2()  {
+            ++i;
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1 abc = new App1();
+         
+        System.out.println(abc.i);
+         
+        App1.App2 xyz = abc.new App2();
+         
+        System.out.println(xyz.i);
+         
+        App1.App2 xyz1 = new App1().new App2();
+         
+        System.out.println(xyz1.i);
+    }
+}
+
+
+// Output ??
+class App1 {
+    String s = "PPP";
+     
+    {
+        System.out.println(s);
+    }
+     
+    String methodApp1() {
+        class App2 {
+            String s = App1.this.s+"QQQ";
+              {
+                System.out.println(s);
+            }
+        }
+         
+        return new App2().s+s;
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1 p = new App1();
+         
+        System.out.println(p.methodApp1());
+    }
+}
+
+
+// Output ??
+class App1 {
+    void methodApp1(int i) {
+        System.out.println(i+++i);
+    }
+     
+    void methodApp2(int i) {
+        System.out.println(--i-i--);
+    }
+}
+ 
+class App2 {
+    App1 a = new App1() {
+        void methodApp1(int i) {
+            System.out.println(++i+i++);
+        }
+         
+        void methodApp2(int i) {
+            System.out.println(i---i);
+        }
+    };
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1 a = new App1();
+         
+        a.methodApp1(10);
+         
+        a.methodApp2(10);
+         
+        App2 b = new App2();
+         
+        b.a.methodApp1(10);
+         
+        b.a.methodApp2(10);
+    }
+}
+
+
+// Output ??
+class App {
+    void m1() {
+        public class App2 {
+             
+        }
+    }
+}
+
+
+// Output ??
+class App1 {
+    {
+        System.out.println("1");
+    }
+     
+    class App2 { {
+            System.out.println("2");
+        }
+    }
+     
+    static {
+        System.out.println("3");
+    }
+     
+    static class App3 { {
+            System.out.println("4");
+        }
+         
+        static {
+            System.out.println("5");
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1 one = new App1();
+         
+        App1.App2 two = one.new App2();
+         
+        App1.App3 three = new App1.App3();
+    }
+}
+
+
+// Output ??
+class App1 {
+    class App2 extends App1 {
+        class App3 extends App2 {
+            class D extends App3 {
+                 
+            }
+        }
+    }
+}
+
+
+// Output ??
+abstract class App1 {
+    static String s1 = "s";
+     
+    String s2 = "normal";
+     
+    abstract void methodX(); 
+     
+    static abstract class App2 {
+        String s1 = "normal";
+         
+        static String s2 = "s";
+         
+        abstract void methodY();
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1()  {   
+            void method1() {
+                System.out.println(s1+" "+s2);
+            }
+        }.method1();
+         
+        new App1.App2()  {   
+            void method2()  {
+                System.out.println(s1+" "+s2);
+            }
+        }.method2();
+    }
+}
+
+
+// How do you access i ?
+class OuterClass {
+    static class InnerClass {
+        int i;
+    }
+}
+
+
+// How would you extend class App2 ?
+class App1 {
+    class App2 {
+         
+    }
+}
+
+
+// Output ??
+class App1 {
+    int x = 1;
+     
+    static class App2 extends App1 {
+        int y = x + 2;
+    }
+     
+    class Z extends App1.App2 {
+        int z = y + 3;
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1.Z z = new App1().new Z();         
+        System.out.println(z.x);         
+        System.out.println(z.y);         
+        System.out.println(z.z);
+    }
+}
+
+
+// Output ??
+class App1 {   
+    class App2 {
+        String s = "Inner - App2";
+    }
+}
+ 
+class App2 extends App1 {   
+    String s = "Outer - App2";
+     
+    class App1 extends App2 {
+         
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        System.out.println(new App2().new App1().s);
+    }
+}
+
+
+// Output ??
+class App1 {   
+    int i = 1;
+     
+    class App2 {
+        int i = 2;         
+        class App3 extends App1 {
+            void methodC() {
+                System.out.println(i);
+            }
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1().new App2().new App3().methodC();
+    }
+}
+
+
+// Output ??
+class App1 {   
+    {
+        System.out.println(1);
+    }     
+    void method() {
+        class App2 { {
+                System.out.println(2);
+            }             
+            class App3 {
+                {
+                    System.out.println(3);
+                }
+            }
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1().method();
+    }
+}
+
+
+// Output ??
+class App1 {   
+    static {
+        class App2 {    {
+                System.out.println(1);
+            }
+        }
+    }
+     
+    {
+        class App2 { {
+                System.out.println(2);
+            }
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1();
+    }
+}
+
+
+// Output ??
+class App1 {   
+    abstract class App2 {
+        abstract void method();
+    }
+     
+    {
+        new App2() {
+             
+            @Override
+            void method() {
+                System.out.println("BBB");
+            }
+        }.method();
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1();
+    }
+}
+
+
+// Output ??
+class App1 {   
+    {
+        class App2 { {
+                System.out.println(1);
+            }
+        }
+         
+        new App2();
+    }
+     
+    static {
+        class Z { {
+                System.out.println(2);
+            }
+        }
+         
+        new Z();
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1();
+    }
+}
+
+
+// Output ??
+class App1 {   
+    void methodX() {
+        class App2 {
+            static void methodY() {
+                 
+            }
+        }
+    }
+}
+
+
+// Output ??
+class OuterClass {
+    static class InnerClassOne {
+        int i = 1221;
+         
+        int getI() {
+            return i = i++ - ++i;
+        }
+    }
+     
+    static class InnerClassTwo extends InnerClassOne {
+        @Override
+        int getI() {
+            return i = i-- + --i;
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args)  {
+        OuterClass.InnerClassOne one = new OuterClass.InnerClassOne();
+         
+        System.out.println(one.getI());
+         
+        one = new OuterClass.InnerClassTwo();
+         
+        System.out.println(one.getI());
+    }   
+}
+
+
+// Output ??
+interface I {
+    String name = "III";
+     
+    void printName();
+}
+ 
+class App3 {
+    String name = "CCC";
+     
+    static {
+        new I() {       
+            public void printName() {
+                System.out.println(name);
+            }
+        }.printName();
+    }
+     
+    {
+        System.out.println(name);
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args)  {
+        App3 c = new App3();
+    }   
+}
+
+
+// Output ??
+class App1 {
+    void methodApp1() {
+        class App2 {
+             
+        }
+    }
+}
+
+
+// Output ??
+class App1 {
+    class App2 {
+        static final int i = 111;
+    }
+}
+
+
+// Error ??
+class App1 extends App2 {
+    class App2  {
+         
+    }
+}
+
+
+// Output ??
+class App1  {
+    int a;
+     
+    class App2  {
+        int b;
+    }
+}
+ 
+class App3 extends App1 {
+     
+}
+
+
+// Output ??
+class App1  {
+    interface I {
+        int i = 4;
+         
+        void show(int i);
+    }
+     
+    class App2 implements I {   
+        public void show(int i) {
+            System.out.println(this.i);
+        }
+    }
+     
+    void methodApp1(int i) {
+        new App2().show(i);
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1().methodApp1(1);
+    }
+}
+
+
+// Output ??
+class App1  {
+    private static class App2 {
+         
+    }
+}
+ 
+class App2 extends App1.App2 {
+     
+}
+
+
+// Output ??
+class App1  {
+    static {
+        System.out.println(1);
+         
+        class App2 { {
+                System.out.println(2);
+            }
+        }
+    }
+     
+    {
+        System.out.println(3);
+         
+        class App2 { {
+                System.out.println(4);
+            }
+        }
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        new App1();
+    }
+}
+
+
+// Output ??
+class App1 {
+    void methodApp1() {
+        System.out.println("AAAA");
+    }
+     
+    class App2 extends App3.D {
+        @Override
+        void methodD() {
+            System.out.println("BBBB");
+        }
+    }
+}
+ 
+class App3 extends App1 {
+    static class D {
+        void methodD() {
+            System.out.println("DDDD");
+        }
+    }
+     
+    @Override
+    void methodApp1() {
+        System.out.println("CCCC");
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1 a = new App3();
+         
+        a.methodApp1();
+         
+        App3.D d = new App1().new App2();
+         
+        d.methodD();
+    }
+}
+
+
+// Output ??
+interface App1 {
+    void methodOne(String s);
+     
+    void methodTwo(String s);
+}
+ 
+abstract class App2 implements App1 {
+    String s = "ONE";
+     
+    public void methodOne(String s) {
+        System.out.println(this.s+s);
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App1 x = new App2() { {
+                s = s + s;
+            }
+             
+            public void methodTwo(String s)  {
+                System.out.println(this.s+s);
+            }
+        };
+         
+        x.methodOne("1");
+         
+        x.methodTwo("2");
+    }
+}
+
+

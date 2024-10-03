@@ -1,0 +1,79 @@
+Inheritance:
+This is also called is-a relation or specialization. What is specialization ?
+Eg. Manager is-a employee. Manager is a type of specialized employee.
+
+Code:
+class employee {
+	// methods and fields here;
+}
+
+class manager extends employee {
+	// methods and fields here;
+}
+
+employee is super class or base class or parent class. The new class is child class, derived class or sub class.
+manager class  has more data.
+
+Tip: Move common data to base class. For example, getSalary() can be in base class. But doAnnualRaises() might probably be in manager class.
+
+Question:
+class employee {
+	int getSalary() {
+	}
+}
+
+class manager extends employee {
+	int getSalary() {
+		// How would you call the employee getSalary method here ??
+	}	
+}
+
+
+// How to initialize base classes;
+class employee {
+	private String Name;
+	private String Salary;
+	public employee() {
+	
+	}	
+	public employee(int s, String n) {
+		Salary = s;
+		Name = n;
+	}
+}
+class manager extends employee {
+	private int teamSize;	
+	public manager () {
+	}	
+	public manager(int s, String n, int t) {
+		super(s, n);
+		teamSize = t;		
+	}
+}
+employee e = new manager();
+employee e2 = new manager(100, "ram", 10);
+
+Question: You cannot call a derived member from base member. Is it true ?
+How would you prevent a class from inheritance ?
+
+
+Output ?
+employee e = new employee();
+manager m = (manager)e;		// Error
+employee e1 = new manager();
+e1.getTeamSize();
+manager m1 = (manager)e1;	// correct
+m1.getTeamSize();	// Error. employee cannot called derv methods.
+int salary = m.getSalary();
+
+What class is always extended by custom classes ?
+
+Object o = new manager();
+manager m = (manager)o;
+
+
+Programming practice:
+- Palindrome number (without converting to string)
+- Valid braces
+- Add binary strings
+- Count set bits.

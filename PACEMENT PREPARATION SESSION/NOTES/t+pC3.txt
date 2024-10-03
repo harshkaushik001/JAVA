@@ -1,0 +1,130 @@
+##### Some more Arrays ######
+// Output ??
+int [] i = {1,2,3,4,5};
+int[] j = i;
+j[2] = 10;
+System.out.println(i[2]);
+
+// Question
+Write a program to create a 5x5 int array and print it.
+
+How double dimension array's are represented in memory ?
+
+//Question ??
+int [][] i = {
+	{1,2,3,4,5,6},
+	{10,20,30,40,50,60},
+	{100,200,300,400,500,600}
+};        
+Arrays.stream(i[0]).forEach(ii -> System.out.print(ii + ","));
+System.out.println();
+Arrays.stream(i[1]).forEach(ii -> System.out.print(ii + ","));
+int[] temp = i[0];
+i[0] = i[0 + 1];
+i[0 + 1] = temp;
+System.out.println();
+Arrays.stream(i[0]).forEach(ii -> System.out.print(ii + ","));
+System.out.println();
+Arrays.stream(i[1]).forEach(ii -> System.out.print(ii + ","));
+################################
+
+
+
+##### Classes and Objects ######
+Object oriented programming vs Procedural programming.
+Objects <-> Algorithms + Data Structures.
+class members <-> global data
+classes <-> files. Eg. class orange <-> orange.c
+Easy to maintain <-> Tough to maintain due to globals and shared data.
+Easily reusable <-> Not easy to reuse the code
+
+Abstraction, Encapsulation and Polymorphism
+class vs object ???
+Behavior, State and Identity.
+object and object variables. (TODO).
+parameters.
+implicit and explicit parameters. (TODO)
+access specifiers.
+Other keywords related to class ?
+getters and setters.
+Not every method should be public.
+Can you have multiple main() in an application ?
+Call by value vs call by reference. Does Java do call by reference ?
+
+// Output ??
+public class App {
+
+    public String name;
+    public static void swap(App a1, App a2) {
+        App temp = a1;
+        a1 = a2;
+        a2 = temp;
+		// a1.name = "third";  
+    }
+    public static void main(String[] args) throws Exception {
+        App a1 = new App();
+        a1.name = "first";
+        App a2 = new App();
+        a2.name = "second";
+        swap(a1, a2);
+        System.out.println(a1.name);
+        System.out.println(a2.name);
+	}
+}
+
+Default and parameterized constructors.
+How would you call a constructor explicitly ?
+
+Initialization order of variables in a class;
+1. All data fields are initialized to their default value (0, false, or null).
+2. All field initializers and initialization blocks are executed, in the order in which they
+occur in the class declaration.
+3. If the first line of the constructor calls a second constructor, then the body of the second
+constructor is executed.
+4. The body of the constructor is executed.
+Naturally, it is always a good idea to organize
+
+// Output ??
+public class App {
+
+    public String name;
+    App (int i) {
+        name = "third";
+    }
+    App () {
+        this(10);
+        name = "name";
+    }
+    {
+        name = "name1";
+    }
+    public static void main(String[] args) throws Exception {
+        App a1 = new App();
+        System.out.println(a1.name);
+	
+	}
+}
+
+classpath
+
+
+A design problem 
+- identify candidate for classes ??
+- Top down approach.
+- Nouns and verbs (+ data)
+- What is the meaning of extending a class ? What is is-a relationship. UML ?
+- uses-a and has-a (Types ?). UML ??
+	Association - Aggregation and Composition
+- Always keep data private.
+- Always initialize data.
+- Break up classes that have too many responsibilities.
+- Make the names of your classes and methods reflect their responsibilities.
+
+
+Let's design a Vehicle class **(and related classes).
+
+
+
+
+
+################################

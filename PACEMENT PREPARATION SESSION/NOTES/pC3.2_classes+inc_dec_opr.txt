@@ -1,0 +1,641 @@
+//Output ??
+class App {
+    static String name;
+ 
+    static {
+        System.out.println("static class"); 
+        name = "static";
+    }
+}
+ 
+public class staticInitBlock {
+    static {
+        System.out.println("static main");
+    }
+ 
+    public static void main(String[] args) {
+        System.out.println("main");
+ 
+        System.out.println(App.name);
+    }
+}
+
+// Output
+class App {
+    int i; 
+    static {
+        System.out.println(i);
+    }
+}
+
+// Output ?
+class App {
+    static {
+        static {
+            System.out.println(1);
+        }
+    }
+}
+
+// How many static initialization blocks are there in below code.
+class App {
+    static String name = "hi";
+ 
+    static {
+        name = "hi";
+    }
+ 
+    static {
+        name = "hi";
+    }
+}
+
+// Output ??
+public class App {
+
+    public static String name;
+    App (int i) {
+    }
+    App () {
+        name = "ctr";
+        System.out.println("ctr");
+    }
+    {
+        System.out.println("init");
+        name = "init";
+    }
+    static {
+        System.out.println("static1");
+        name = "static1";
+    } 
+    static {
+        System.out.println("static2");
+        name = "static2";
+    }
+	
+	public static void main(String[] args) {
+        App a1 = new App();
+        System.out.println(a1.name);
+	}
+}
+
+// Output ?
+public class App {
+    static {
+        System.out.println(1);
+    } 
+    static {
+        System.out.println(2);
+    } 
+    static {
+        System.out.println(3);
+    }
+ 
+    public static void main(String[] args) {
+        App app;
+    }
+}
+
+// Output ?
+class App {
+    static int first;
+ 
+    static String second;
+ 
+    static {
+        System.out.println(1);
+ 
+        first = 100;
+    } 
+    static {
+        System.out.println(2); 
+        second = "SECOND";
+    }
+}
+ 
+public class Block {
+    static {
+        System.out.println(3);
+    } 
+    public static void main(String[] args) {
+        System.out.println(4); 
+        System.out.println(A.first); 
+        System.out.println(A.second);
+    }
+}
+
+Difference between Static Initialization Block and Instance Initialization Block ?
+
+// Output
+class App {
+    {
+        System.out.println(100);
+    } 
+    public A() {
+        System.out.println(5);
+    } 
+    public static void main(String[] args) {
+        System.out.println(500); 
+        A a = new A();
+    }
+}
+
+// Output
+public class App {
+    static String st = "static"; 
+    String normal = "normal"; 
+    {
+        Hi(); 
+        st = "static1"; 
+        normal = "normal1";
+    }
+ 
+    void Hi() {
+        System.out.println(st); 
+        System.out.println(normal);
+    }
+ 
+    public static void main(String[] args) {
+        App a = new App(); 
+        a.Hi();
+    }
+}
+
+// Output
+public class App {
+	static {
+		i = 30;
+	}
+	static int i = 20;
+	static {
+		i = 10;
+	}
+	public static void main(String[] args) {
+		System.out.println(App.i);
+	}
+}
+
+
+// Output ??
+public class App
+{
+    {
+        System.out.println(i);
+    } 
+    int i = 10;
+	public static void main(String[] args) {
+		System.out.println(App.i);
+	}
+}
+
+// Output ??
+public class App
+{
+	App();
+	
+	public static void main(String[] args) {
+		App app = new App();
+	}
+}
+
+// Output ??
+class App
+{
+    static int i = 10; 
+    static {
+        i = 20;
+    }
+ 
+    public App(int i) {
+        System.out.println(i);
+ 
+        this.i = i;
+    } 
+    {
+        i = 30;
+    }
+} 
+public class App2
+{
+    public static void main(String[] args) {
+        System.out.println(App.i);
+    }
+}
+
+// Output
+class App1 {
+    {
+        System.out.println(1);
+    }
+ 
+    static {
+        System.out.println(2);
+    }
+ 
+    public App1(int i) {
+        System.out.println(3);
+    }
+ 
+    public App1() {
+        System.out.println(4);
+    }
+}
+ 
+public class App {
+    {
+        System.out.println(5);
+    }
+ 
+    public static void main(String[] args) {
+        System.out.println(6); 
+        App1 a1 = new App1(); 
+        App1 a2 = new App1(10);
+    }
+}
+
+Question: How can you invoke a constructor from another constructor in the same class ?
+
+
+// Output ??
+class App1 {
+    String s; 
+    {
+        s = "FIRST";
+    }
+ 
+    {
+        s = "SECOND";
+    }
+ 
+    public App1() {
+        s = "THIRD";
+    }
+ 
+    public App1(String s) {
+        this(); 
+        System.out.println(this.s);
+    }
+} 
+public class App {
+    public static void main(String[] args) {
+        App1 a = new App1("LAST");
+    }
+}
+
+// Output ??
+public class App
+{
+    public App(int i)
+    {
+        this(10, 20);
+    }
+ 
+    public App(int i, int j)
+    {
+        this(5.5);
+    }
+ 
+    A(double d)
+    {
+        this(10);
+    }
+	public static void main(String[] args) {
+        App a = new App1(10);
+    }
+}
+
+
+// Output ??
+public class App
+{
+    public App(int i)
+    {
+        this(10, 20);
+    }
+	public static void main(String[] args) {
+        App a = new App1();
+    }
+}
+
+// How many constructors are there ?
+public class A
+{
+ 
+}
+
+// Output ??
+public class App {
+    static void Hey() {
+        System.out.println("A");
+    } 
+    void Ha() {
+        System.out.println("B"); 
+        Hey();
+    } 
+    public static void main(String[] args) {
+        System.out.println("C"); 
+        new App().Ha();
+    }
+}
+
+
+// Output
+public class App {
+    public static void main(String[] args) {
+        int i; 
+        System.out.println(i);
+    }
+}
+
+
+// Output ??
+public class App {
+    static int i = 10, j = 20; 
+    int m = 30, n = 40; 
+    public static void main(String[] args) {
+        A a1 = new A(); 
+        A a2 = new A(); 
+        a1.i = 100; 
+        System.out.println(a2.i); 
+        a2.j = 200; 
+        System.out.println(a1.j); 
+        a1.m = 300; 
+        System.out.println(a2.m); 
+        a2.n = 400; 
+        System.out.println(a1.n);
+    }
+}
+
+// Output ??
+public class App {
+    int i = 111; 
+    static int j = 222; 
+    static void methodOne(int i, int j) {
+        System.out.println(i); 
+        System.out.println(j);
+    } 
+    public static void main(String[] args) {
+        App.methodOne(333, 444);
+    }
+}
+
+// Output ??
+public class App {
+    int m; 
+    double n; 
+    public A(int i) {
+        m = i;
+    } 
+    public A(double d) {
+        n = d;
+    } 
+    {
+        System.out.println(m); 
+        System.out.println(n);
+	} 
+    public static void main(String[] args) {
+        A a1 = new A(500); 
+        A a2 = new A(50.0); 
+        System.out.println(a1.m+" : "+a1.n); 
+        System.out.println(a2.m+" : "+a2.n);
+    }
+}
+
+// Output
+public class App {
+    int i; 
+    App a; 
+    {
+        i = 1; 
+        a = new App();
+    } 
+    public static void main(String[] args) {
+        App a = new A(); 
+        System.out.println(a.i);
+    }
+}
+
+// Output
+public class App {
+    String s; 
+    App a; 
+    public A(String s) {
+        this.s = s;
+    } 
+    public static void main(String[] args) {
+        App a1 = new A("first"); 
+        App a2 = new A("second"); 
+        a1.a = a2; 
+        a2.a = a1; 
+        System.out.println(a1.a.s); 
+        System.out.println(a2.a.s);
+    }
+}
+
+// Output ??
+public class App {
+    String s; 
+    public App() {
+        this("It's not me"); 
+        System.out.println('A'); 
+        System.out.println(s);
+    } 
+    App(String  s) {
+        System.out.println('B'); 
+        System.out.println(this.s); 
+        this.s = s;
+    } 
+    {
+        System.out.println('C'); 
+        System.out.println(s); 
+        this.s = "ABCD";
+    } 
+    public static void main(String[] args) {
+        App a1 = new App(); 
+        App a2 = new App("It's me");
+    }
+}
+
+
+// Output ??
+public class App {
+    static void Hi() {
+        System.out.println("Hi!!");
+    } 
+    static {
+        Hi();
+    } 
+    public static void main(String[] args) {
+        Hi();
+    }
+}
+
+// Output
+class App {
+    int i = 50;
+}
+ 
+class App1 {
+    int i = 100; 
+    X x;
+} 
+public class MainClass {
+    public static void main(String[] args) {
+        App x = new App(); 
+        App1 y = new App1(); 
+        y.x = x; 
+        System.out.println(x.i); 
+        System.out.println(y.i); 
+        System.out.println(y.x.i);
+    }
+}
+
+// Output ??
+class App
+{
+    App app = new App();
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int i = 11;         
+        i = i++ + ++i;         
+        System.out.println(i);
+    }
+}
+
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int a=11, b=22, c;         
+        c = a + b + a++ + b++ + ++a + ++b;         
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int i=0;         
+        i = i++ - --i + ++i - i--;         
+        System.out.println(i);         
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        boolean b = true;         
+        b++;         
+        System.out.println(b);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int i=1, j=2, k=3;         
+        int m = i-- - j-- - k--;         
+        System.out.println(i);
+        System.out.println(j);
+        System.out.println(k);
+        System.out.println(m);
+    }
+}
+
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int a=1, b=2;         
+        System.out.println(--b - ++a + ++b - --a);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int i = 11;         
+        int j = --(i++);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int m = 0, n = 0;         
+        int p = --m * --n * n-- * m--;         
+        System.out.println(p);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args)     {
+        int a=1;         
+        a = a++ + ++a * --a - a--;         
+        System.out.println(a);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int a = 11++;         
+        System.out.println(a);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        int ch = 'A';         
+        System.out.println(ch++);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        char ch = 'A';         
+        System.out.println(++ch);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        char ch = "123".charAt(1);         
+        System.out.println(ch++ + ++ch);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        char ch = '0';         
+        System.out.println(ch-- + --ch);
+    }
+}
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        char c = 'A', C = 'a';         
+        System.out.println(c++ * ++C);
+    }
+}
+
+
+// Output ??
+public class App {
+    public static void main(String[] args) {
+        double d = 1.5, D = 2.5;         
+        System.out.println(d++ + ++D);
+    }
+}
+

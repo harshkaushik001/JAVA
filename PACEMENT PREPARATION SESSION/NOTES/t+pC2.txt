@@ -1,0 +1,85 @@
+Data types, variables and arrays
+	Type checking.
+	Premitive types
+		byte, int, short, char, long, float, double, boolean
+		** Write a program to print the size and range of all the premitive datatypes.
+		Type promotion and using smaller data types like short and byte when big values are not needed.
+		** write a program to calculate the distance travelled by light in 5 days and 5 hour. What data type you would use.
+		speed of light = 30000 m/s
+		** write a program to test the precision/decimal digits limit of float and double data types.
+		** Write a program to find the area of circle with radius 235.767778322. Use float and double both.
+
+// OUTPUT
+class App {
+
+    public static void main(String[] args) throws Exception 
+    {
+        char c = (char)65;
+        System.out.print(c);
+	}
+}
+
+		** Write a program to print all the lower case alphabets.
+		What are litrals ?
+		** Write a program to assign binary, octal and hexadecimal value to an int. Print the values.
+		** Add boolean, char, string, integer literal values.
+
+What will happen ?
+int i = 09;
+int i = 99_22_33;
+double d = 2_3_4.5_6_7;
+
+Escape sequences.
+Constant vs dynamic initialization. Nested scopes
+int i = 0;
+int j = Math.sqrt(81);
+
+		** Write a program to test the scope and lifetime of a local and instance variable.
+		
+What is casting. What is narrowing convertion ? What is data truncation ?
+What is type promotion ? What are type promotion rules ?
+		** Write a program to Type cast a char to int, int to char, double to int, int to double, float to double and double to float.
+		What did you analyzed ?
+		** write a program to create an integer array of 12 indexes. Assign values to number of days in month to the indexes. And print the indexes
+		** Try to access index 13 and check what happens. Can you catch the exception and recover from that exception ?
+		
+		** Write a program to create a two dimentional array of size 5x5. Assign random values to all the indexes and print the indexes.
+
+How address work for objects.
+        int [] i = {1,2,3};
+        int [] j = {1,2,3};
+        System.out.println(i);
+        System.out.println(j);
+        j = i;
+        System.out.println(j);
+
+
+Operators:		
+What operators are supported by Java ?
+
+		** Write a program having a function which accepts a number and prints true if the number is divisible by 2 other prints false.
+		
+Which is faster ? ++x or x++.
+What are bitwise operators ?
+		
+		** Write a program which do a bitwise OR operation of 5 and 7 and the prints the values of the operation.
+		** Write a program which do a bitwise AND operation of 5 and 7 and then pritns the values after the operation.
+
+What is XOR operator ?
+		** Write a program to do a bitwise XOR operation of 5 and  7 and then prints the values after the operation.
+		
+		Bitwise problems: ######
+		** Write a program to print the most significant byte of a number.
+		** Write a program to get the nth bit of a number.
+		** Write a program to set nth bit of a number.
+		** Write a program to invert the nth bit of a number.
+		** Write a program to clear the nth bit of a number.
+		** Write a program to print the number in binary.
+		** Write a program to print a hexadecimal number in decimal form.
+		** Write a program to print total numbers of 1's and 0's in a number.
+		** Write a program to invert all the bits of a number.
+		
+What is "?" operator ?
+eg. test = test ? test : 0;
+
+

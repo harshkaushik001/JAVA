@@ -1,0 +1,511 @@
+
+Output ??
+class App1 {
+} 
+class App2 {
+} 
+class App3 extends App1, App2 {
+}
+
+Output ??
+class Base {
+    int i = 10;
+}
+ 
+class Derv extends Base {
+    int i = 20;
+}
+ 
+public class mainC {
+    public static void main(String[] args)     {
+        Base a = new Derv(); 
+        System.out.println(a.i);
+    }
+}
+
+Output ??
+class App1 {
+    {
+        System.out.println(1);
+    }
+} 
+class App2 extends App1 {
+    {
+        System.out.println(2);
+    }
+} 
+class App3 extends App2 {
+    {
+        System.out.println(3);
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App3 c = new App3();
+    }
+}
+
+Output ??
+class App {
+    String s = "Class App";
+}
+ 
+class App2 extends App {
+    String s = "Class App2"; 
+    {
+        System.out.println(super.s);
+    }
+}
+ 
+class App3 extends App2 {
+    String s = "Class App3"; 
+    {
+        System.out.println(super.s);
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App3 c = new App3(); 
+        System.out.println(c.s);
+    }
+}
+
+Output ??
+class App1 {
+    static {
+        System.out.println("3");
+    }
+}
+ 
+class App2 extends App1 {
+    static {
+        System.out.println("2");
+    }
+}
+ 
+class App3 extends App2 {
+    static {
+        System.out.println("1");
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App3 c = new App3();
+    }
+}
+
+Output ??
+class App1 {
+    public App1() {
+        System.out.println("Class App1");
+    }
+} 
+class App2 extends App1 {
+    public App2() {
+        System.out.println("Class App2");
+    }
+} 
+class App3 extends App2 {
+    public App3() {
+        System.out.println("Class App3");
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App3 c = new App3();
+    }
+}
+
+
+Output ??
+class App1 {
+    static void StaticM() {
+        System.out.println("Class App1");
+    }
+} 
+class App2 extends App1 {
+    static void StaticM() {
+        System.out.println("Class App2");
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2.StaticM();
+    }
+}
+
+
+Output ??
+class App1 {
+    public App1(int i) {
+        System.out.println(1);
+    }
+} 
+class App2 extends App1 {
+    public App2() {
+        System.out.println(2);
+    }
+}
+
+
+What is wrong below ??
+public class App1 {
+    public App1() {
+        System.out.println(1); 
+        super(); 
+        System.out.println(2);
+    }
+}
+
+
+Output ??
+public class App1 {
+    public App1(int i) {
+ 
+    }
+} 
+class App2 extends App1 { 
+}
+
+
+Output ??
+public class App1 {
+    public App1() {
+        super(); 
+        this(10);
+    } 
+    public App1(int i) {
+        System.out.println(i);
+    }
+}
+
+
+Output ??
+class App1 {
+    int i; 
+    public App1(int i) {
+        this.i = i--;
+    }
+} 
+class App2 extends App1 {
+    public App2(int i) {
+        super(++i); 
+        System.out.println(i);
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2 n = new App2(26);
+    }
+}
+
+
+Output ??
+class App1 {
+    int i = 51; 
+    public App1(int j) {
+        System.out.println(i); 
+        this.i = j * 10;
+    }
+} 
+class App2 extends App1 {
+    public App2(int j) {
+        super(j); 
+        System.out.println(i); 
+        this.i = j * 20;
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2 n = new App2(26); 
+        System.out.println(n.i);
+    }
+}
+
+
+Output ??
+class App1 {
+    private int m = 48;
+} 
+class App2 extends App1 {
+    void methodOfApp2() {
+        System.out.println(m);
+    }
+}
+
+
+Output ??
+class App1 {
+    int m = 1111;  {
+        m = m++; //	eq: m=m;m+1;
+        System.out.println(m);
+    }
+} 
+class App2 extends App1 { {
+        System.out.println(methodOfApp2());
+    } 
+    int methodOfApp2() {
+        return m-- + --m;
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2 y = new App2();
+    }
+}
+
+
+Output ??
+class App1 {
+    static String s = "AAA"; 
+    static {
+        s = s + "BBB";
+    } 
+    {
+        s = "AAABBB";
+    }
+} 
+class App2 extends App1 {
+    static {
+        s = s + "BBBAAA";
+    } 
+    {
+        System.out.println(s);
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2 b = new App2();
+    }
+}
+
+
+Output ??
+class App1 {
+    int i = 101010;
+ 
+    public App1() {
+        i = i++ + i-- - i;
+    }
+ 
+    static int staticMethod(int i) {
+        return --i;
+    }
+} 
+class App2 extends App1 {
+    public App2() {
+        System.out.println(staticMethod(i));
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2 y = new App2();
+    }
+}
+
+
+Output ??
+class App1 {
+    void App1() {
+        System.out.println(1);
+    }
+} 
+class App2 extends App1 {
+    void App2() {
+        App1();
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        new App2().App2();
+    }
+}
+
+
+Output ??
+class App1 {
+    int i = 1212;
+} 
+class App2 extends App1 {
+    App1 a; 
+    public App2(App1 a) {
+        this.a = a;
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App1 a = new App1(); 
+        App2 b = new App2(a); 
+        System.out.println(a.i); 
+        System.out.println(b.i); 
+        System.out.println(b.a.i); 
+        b.a.i = 2121; 
+        System.out.println("--------"); 
+        System.out.println(a.i); 
+        System.out.println(b.i);
+    }
+}
+
+
+Output ??
+class App1 {
+     static int i, j = 191919; 
+     {
+         --i;
+     } 
+     {
+         j++;
+     }
+}
+ 
+public class App2 extends App1 {
+    static {
+        i++;
+    } 
+    static {
+        --j;
+    } 
+    public static void main(String[] args) {
+        System.out.println(i);
+ 
+        System.out.println(j);
+    }
+}
+
+
+Output ??
+class App1 {
+    int[] a = new int[5];
+  {
+        a[0] = 10;
+    }
+}
+ 
+public class mainC extends App1 {
+    {
+        a = new int[5];
+    } 
+    {
+        System.out.println(a[0]);
+    } 
+    public static void main(String[] args) {
+        mainC main = new mainC();
+    }
+}
+
+
+Output ??
+class App1 {
+    int methodOfA(int i) {
+        i /= 10; 
+        return i;
+    }
+}
+ 
+class App2 extends App1 {
+    int methodOfB(int i) {
+        i *= 20; 
+        return methodOfA(i);
+    }
+}
+ 
+public class mainC {
+    public static void main(String[] args) {
+        App2 b = new App2(); 
+        System.out.println(b.methodOfB(100));
+    }
+}
+
+
+Output ??
+class App1 {
+    static int i;
+ 
+    static {
+        i++;
+    } 
+    {
+        ++i;
+    }
+}
+ 
+class App2 extends App1 {
+    static {
+        --i;
+    } 
+    {
+        i--;
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        System.out.println(new App2().i);
+    }
+}
+
+
+Output ??
+public class mainC {
+    public mainC(int i, int j) {
+        System.out.println(method(i, j));
+    } 
+    int method(int i, int j) {
+        return i++ + ++j;
+    } 
+    public static void main(String[] args) {
+        mainC main = new mainC(10, 20);
+    }
+}
+
+
+Output ??
+class App1 {
+    static {
+        App2.methodOfApp2();
+    }
+} 
+class App2 extends App1 {
+    static void methodOfApp2() {
+        System.out.println("Hi!!");
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2.methodOfApp2();
+    }
+}
+
+
+Output ??
+class App1 {
+    static int i = 111; 
+    int j = 222; 
+    {
+        i = i++ - ++j;
+    }
+} 
+class App2 extends App1 {
+    {
+        j = i-- + --j;
+    }
+}
+
+
+Output ??
+class App1 {
+    int x = 2121;
+} 
+class App2 {
+    int x = 1212; 
+    {
+        System.out.println(x);
+    }
+} 
+public class mainC {
+    public static void main(String[] args) {
+        App2 two = new App2();
+    }
+}
+
